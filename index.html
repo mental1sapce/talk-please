@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Talk It Out</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="twinkle-stars"></div>
+    <nav class="container-fluid">
+      <ul>
+        <li><strong>Talk It Out</strong></li>
+      </ul>
+      <ul>
+        <li><a href="#" onclick="showHome()">Home</a></li>
+        <li><a href="#" onclick="showStories()">Stories</a></li>
+        <li><a href="#" onclick="showPostForm()" id="post-btn" style="display:none;">Post Story</a></li>
+        <li id="auth-section">
+          <div id="login-section" style="display:block;">
+            <script
+              authed="handleAuthentication()"
+              src="https://auth.util.repl.co/script.js"
+            ></script>
+          </div>
+          <div id="user-section" style="display:none;">
+            <span id="user-name"></span>
+            <button onclick="logout()">Logout</button>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="container">
+      <!-- Home Section -->
+      <div id="home-section" class="content-section">
+        <div class="grid">
+          <section>
+            <hgroup>
+              <h2>Healing Without Revealing</h2>
+              <h3>Getting closure-- Without disclosing yourself</h3>
+            </hgroup>
+
+            <figure>
+              <img src="kid-crying.png.png" alt="kid crying" />
+              <figcaption></figcaption>
+            </figure>
+
+            <p>A tiny soul, drenched in fear and loneliness, weeps on a winding road as the sky rains down, its drops mingling with his tears.</p>
+
+            <figure>
+              <img src="kid-crying1.png.png" alt="two kids crying"/>
+              <figcaption></figcaption>
+            </figure>
+
+            <p>In the storm's sorrowful silence, a child running through the rain finds his mirror in pain — two fragile hearts, lost and alike, colliding in a moment of shared ache.</p>
+
+            <figure>
+              <img src="kid-laughing.png.png" alt="two kids runing" />
+              <figcaption></figcaption>
+            </figure>
+
+            <p>From rain-soaked cries to sunlit laughter, two kindred souls who found each other in pain now run hand in hand — healing not through words, but through the joy of simply being understood.</p>
+          
+            <!-- Custom Sign Up Section -->
+            <div class="signup-section">
+              <hgroup>
+                <h2>Connect, learn, and heal together</h2>
+                <h3>Sign up to share your story anonymously</h3>
+              </hgroup>
+              <form class="signup-form" id="custom-signup-form">
+                <div class="signup-inputs">
+                  <input 
+                    type="text" 
+                    id="pseudonym" 
+                    name="pseudonym" 
+                    placeholder="Your pseudonym" 
+                    required
+                  />
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="Email (optional)" 
+                  />
+                  <button type="submit" class="signup-btn">Sign Up</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="search-section">
+              <form class="search-form">
+                <input 
+                  type="search" 
+                  id="heart-search" 
+                  name="heart-search" 
+                  placeholder="What bothers your heart? (e.g., anxiety, loneliness, stress)" 
+                  aria-label="Search for stories and connections"
+                />
+                <button type="submit" onclick="event.preventDefault(); searchStories()">
+                  Search Hearts
+                </button>
+              </form>
+            </div>
+
+            <div id="search-results" style="display:none;">
+              <h3>Stories that understand your heart:</h3>
+              <div id="results-container"></div>
+            </div>
+
+            <p>You are not at all alone. Each one, every one of us, has vulnerabilities, weakness, helplessness, powerlessness, guilt, grit, etc. Your heart is beating with billions and trillions of hearts feeling the same, agonizing the same. Talk It Out is here for folks like you — a safe, anonymous place for healing without revealing yourself. Your scars make you beautiful. Find an exquisite heart like yours and start your healing journey together.</p>
+          </section>
+        </div>
+      </div>
+
+      <!-- Stories Section -->
+      <div id="stories-section" class="content-section" style="display:none;">
+        <hgroup>
+          <h2>Community Stories</h2>
+          <h3>Hearts sharing their journey</h3>
+        </hgroup>
+        <div id="stories-container">
+          <!-- Stories will be loaded here -->
+        </div>
+      </div>
+
+      <!-- Post Story Section -->
+      <div id="post-section" class="content-section" style="display:none;">
+        <hgroup>
+          <h2>Share Your Story</h2>
+          <h3>Your voice matters, your story heals</h3>
+        </hgroup>
+        <form id="story-form">
+          <input type="text" id="story-title" placeholder="Give your story a title" required />
+          <textarea id="story-content" placeholder="Share what's in your heart... (tags: #anxiety #depression #loneliness #stress #hope)" rows="6" required></textarea>
+          <input type="text" id="story-tags" placeholder="Tags (e.g., anxiety, hope, healing)" />
+          <button type="submit">Share Your Heart</button>
+        </form>
+      </div>
+    </main>
+
+    <footer class="container">
+      <small><a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a></small>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
